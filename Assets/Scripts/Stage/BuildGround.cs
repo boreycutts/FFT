@@ -1,0 +1,72 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Threading;
+
+public class BuildGround : MonoBehaviour
+{
+    public GameObject point_prefab;
+    static public GameObject[] bar_array;
+    public GameObject[] point_array;
+
+    private int number_of_points;// = Initilize.number_of_blocks;
+    private int time_delay = 2;
+    private int count = 0;
+    static public int count2 = 0;
+
+    public float[] spectrum;
+    public float[] volume = new float[64];
+    static public float average;
+
+    void Start()
+    {
+        count = 0;
+        count2 = 0;
+        number_of_points = Initilize.number_of_blocks;
+    }
+
+    void Update()
+    {
+        //count++;
+
+        if (count2 < Initilize.cave_depth + 1) { count2++; createBars(); }
+        else { count2 = Initilize.cave_depth + 2; }
+
+        bar_array = GameObject.FindGameObjectsWithTag("Bar");
+
+        spectrum = AudioListener.GetSpectrumData(1024, 0, FFTWindow.Hamming);
+
+        for (int i = 0; i < bar_array.Length; i++)
+        {
+
+            average += spectrum[i];
+            Vector3 point_amplitude = bar_array[i].transform.localScale;
+            point_amplitude.y = spectrum[i] * Mathf.Pow(i + 1, 0.7f) * Initilize.cave_intensity;
+            point_amplitude.x = Initilize.block_width;
+            bar_array[i].transform.localScale = point_amplitude;
+
+            bar_array[i].transform.tag = "Point";
+        }
+
+        average = average / number_of_points;
+        //count = 0;
+    }
+
+    void createBars()
+    {
+        average = 0;
+
+        AudioListener.GetOutputData(volume, 0);
+        for (int i = 0; i < number_of_points / 2; i++)
+        {
+            Vector3 point_position = new Vector3(i * Initilize.cave_width, 0, 0);
+            Instantiate(point_prefab, point_position, Quaternion.identity);
+        }
+        for (int i = number_of_points / 2; i < number_of_points; i++)
+        {
+            Vector3 point_position = new Vector3((i - number_of_points / 2) * Initilize.cave_width, Initilize.cave_height, 0);
+            Instantiate(point_prefab, point_position, Quaternion.identity);
+        }
+
+        //count = 0;
+    }
+}
