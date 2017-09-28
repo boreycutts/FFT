@@ -1,0 +1,43 @@
+Enemies:
+- Add certain enemies based on frequency
+  - Boss enemies on low frequency spikes
+  - Normal enemies on high frequency spikes (Idk come up with some enemy types)
+- Make boss shoot expanding ring of bullets (maybe)
+- How do normal enemies attack?
+  - kamikaze once in range?
+  - shot bullets triggered by music spikes?
+  - maybe both?
+- More Enemy Types
+  - One that only moves vertically and horizontally but will periodically fire a beam
+    - Certain frequency causes the count to increase until it fires
+  - One that periodically leaves behind a shockwave that causes damage
+- Come up with better design for enemy character models
+- Explode when hit
+
+Stage:
+- Change health rings to powerups
+  - Health
+  - Invincibility
+  - Powerup guns
+    - Can be unlocked in store
+      - Shotgun
+        - Maybe shoots rings?
+      - Machine Gun
+      - Semi Auto laser
+        - Like a rail gun
+      - Homing Missiles
+    - Limited time or until player gets hit?
+  - Double Points
+  - When you get one the stage should change color or something
+- Experiment with changing the stage color based on audio queues
+- Create a less 'early-access' looking stage
+- More stage modifiers
+  - Speed? (Idk If this is easily doable)
+  - Variable lighting based on spectrum amplitude
+    - Change color
+      - Maybe based on audio queues
+    - Change max intensity
+  - Idk think of some more you dingus!
+- Possibly destructible stage?
+
+Menu:
