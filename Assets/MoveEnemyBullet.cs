@@ -15,6 +15,10 @@ public class MoveEnemyBullet : MonoBehaviour
 	void Update ()
     {
 
-        transform.Translate(0, 1, -8);
+        transform.Translate(0, 0.5f, -4);
+        if (AddBullets_SmallBoss.is_shooting)
+        {
+            transform.localPosition = new Vector3(0, 0, 0);
+        }
 	}
 }

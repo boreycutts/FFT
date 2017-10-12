@@ -9,12 +9,13 @@ public class MoveEnemy_SmallBoss : MonoBehaviour
     int count;
     static public float health = 500;
 
-    Vector3 target_position;
-    static public Vector3 position;
+    Vector3 target_position = new Vector3();
+    static public Vector3 position = new Vector3();
 
     void Start ()
     {
         is_alive = true;
+        position = transform.localPosition;
     }
 	void Update ()
     {
