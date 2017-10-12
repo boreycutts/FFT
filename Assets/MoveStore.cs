@@ -8,7 +8,7 @@ public class MoveStore : MonoBehaviour
     static public bool color = false;
 
     Vector3 ship_position = new Vector3(0, 0, 0);
-    Vector3 color_position = new Vector3(0, -110, 0);
+    Vector3 color_position = new Vector3(0, -200, 0);
 	void Start ()
     {
 		

@@ -41,3 +41,5 @@ Stage:
 - Possibly destructible stage?
 
 Menu:
++ Fix distance on store menu
+- Add guns to store menu
