@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveEnemyBullet : MonoBehaviour
 {
-
+    static public bool reset_position = false;
 	// Use this for initialization
 	void Start ()
     {
@@ -14,11 +14,6 @@ public class MoveEnemyBullet : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
-        transform.Translate(0, 0.5f, -4);
-        if (AddBullets_SmallBoss.is_shooting)
-        {
-            transform.localPosition = new Vector3(0, 0, 0);
-        }
+        transform.Translate(0, 0.25f, -2);
 	}
 }

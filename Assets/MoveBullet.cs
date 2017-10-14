@@ -22,4 +22,9 @@ public class MoveBullet : MonoBehaviour
             transform.Translate(0, 0, 0);
         }
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }

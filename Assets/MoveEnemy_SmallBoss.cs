@@ -7,10 +7,13 @@ public class MoveEnemy_SmallBoss : MonoBehaviour
     static public bool is_alive = false;
 
     int count;
-    static public float health = 500;
+    static public float health = 200;
 
     Vector3 target_position = new Vector3();
     static public Vector3 position = new Vector3();
+
+    public GameObject explosion;
+    public GameObject explosion_small;
 
     void Start ()
     {
@@ -30,7 +33,6 @@ public class MoveEnemy_SmallBoss : MonoBehaviour
         }
         else
         {
-            Debug.Log("Is it here?");
             transform.localPosition = new Vector3(0, 0, -500);
             count++;
 
@@ -51,13 +53,15 @@ public class MoveEnemy_SmallBoss : MonoBehaviour
         {
             if (health < 0)
             {
-                PlayerScore.score += 100;
-                health = 500;
+                PlayerScore.score += 200;
+                health = 200;
                 is_alive = false;
+                Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
             }
             else
             {
                 health--;
+                Instantiate(explosion_small, transform.position, new Quaternion(0, 0, 0, 0));
             }
         }
     }

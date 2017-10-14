@@ -9,8 +9,10 @@ public class MoveEnemy_Basic2 : MonoBehaviour
     int count = 0;
 
     Quaternion original_rotation;
-
     Vector3 target_position;
+
+    public GameObject explosion;
+
     void Start()
     {
         original_rotation = transform.localRotation;
@@ -62,6 +64,8 @@ public class MoveEnemy_Basic2 : MonoBehaviour
         {
             PlayerScore.score += 10;
             is_alive2 = false;
+            Instantiate(explosion, transform.position, new Quaternion(0, 0, 0, 0));
+            collision.gameObject.transform.localPosition = new Vector3(0, 0, 500);
         }
     }
 }

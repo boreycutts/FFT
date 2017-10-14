@@ -68,6 +68,7 @@ public class Initilize : MonoBehaviour
 
     void Start ()
     {
+
         /*if (is_mobile)
         {
             mobile_ui_scale_factor = 2;

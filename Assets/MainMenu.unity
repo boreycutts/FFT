@@ -8713,7 +8713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29baf11cff97d14ba5c892c54c687ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point_prefab: {fileID: 1429817573677758, guid: 13ac736844176a64581625186bc33fcf,
+  point_prefab: {fileID: 1000011338393290, guid: 201e9ffb35912634183b0cc9ea09dafb,
     type: 2}
   point_array: []
   spectrum: []

@@ -6,9 +6,14 @@ public class MovePoint1 : MonoBehaviour
     Vector3 bar_position;
     int count = 0;
     int limit = Initilize.cave_depth;
+
+    public Material[] color_array = new Material[11];
+
     void Start()
     {
         bar_position = transform.localPosition;
+
+        GetComponent<MeshRenderer>().material = color_array[PlayerColor.color2];
     }
 
     void Update()

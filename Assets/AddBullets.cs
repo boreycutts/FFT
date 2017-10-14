@@ -15,7 +15,6 @@ public class AddBullets : MonoBehaviour
 
 	void Update ()
     {
-        Debug.Log(bullet_array.Length);
 		if (count > 10)
         {
             if (bullet_index < bullet_array.Length)

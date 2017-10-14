@@ -5,12 +5,13 @@ using UnityEngine;
 public class MoveEnemy_Basic : MonoBehaviour
 {
     static public bool is_alive1 = false;
-
     int count;
 
     Quaternion original_rotation;
-
     Vector3 target_position;
+
+    public GameObject explosion;
+
     void Start()
     {
         original_rotation = transform.localRotation;
@@ -62,6 +63,8 @@ public class MoveEnemy_Basic : MonoBehaviour
         {
             PlayerScore.score += 10;
             is_alive1 = false;
+            Instantiate (explosion, transform.position, new Quaternion(0, 0, 0, 0));
+            collision.gameObject.transform.localPosition = new Vector3(0, 0, 500);
         }
     }
 }

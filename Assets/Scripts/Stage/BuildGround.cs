@@ -43,11 +43,11 @@ public class BuildGround : MonoBehaviour
 
             average += spectrum[i];
             
-            if (i < number_of_points/3)
+            if (i < 7)
             {
                 average_low += spectrum[i];
             }
-            else if (i >= number_of_points / 3 && i < number_of_points * 2 / 3)
+            else if (i >= 7 && i < number_of_points * 2 / 3)
             {
                 average_mid += spectrum[i];
             }
@@ -57,14 +57,21 @@ public class BuildGround : MonoBehaviour
             }
 
             Vector3 point_amplitude = bar_array[i].transform.localScale;
-            point_amplitude.y = spectrum[i] * Mathf.Pow(i + 1, 0.7f) * Initilize.cave_intensity;
+            if (Initilize.cave_intensity > 0)
+            {
+                point_amplitude.y = spectrum[i] * Mathf.Pow(i + 1, 0.7f) * Initilize.cave_intensity;
+            }
+            else
+            {
+                point_amplitude.y = spectrum[i] * Mathf.Pow(i + 1, 0.7f) * 500;
+            }
             point_amplitude.x = Initilize.block_width;
             bar_array[i].transform.localScale = point_amplitude;
             bar_array[i].transform.tag = "Point";
         }
 
         average = average / number_of_points;
-        average_low = average_low / number_of_points / 3;
+        average_low = average_low / 7;
         average_mid = average_mid / number_of_points / 3;
         average_high = average_high / number_of_points / 3;
     }
@@ -72,8 +79,7 @@ public class BuildGround : MonoBehaviour
     void createBars()
     {
         average = 0;
-
-        AudioListener.GetOutputData(volume, 0);
+        
         for (int i = 0; i < number_of_points / 2; i++)
         {
             Vector3 point_position = new Vector3(i * Initilize.cave_width, 0, 0);

@@ -13,6 +13,8 @@ public class MovePlayer : MonoBehaviour
 
     float vertical_speed = 0;
     float horizontal_speed = 0;
+    float max_vertical_speed = Initilize.player_max_speed;
+    float max_horizontal_speed = Initilize.player_max_speed;
     float max_speed = Initilize.player_max_speed;
     float acceleration = Initilize.player_acceleration;
     float deceleration = Initilize.player_deceleration;
@@ -200,11 +202,14 @@ public class MovePlayer : MonoBehaviour
             player_rotation = transform.localRotation;
             new_rotation = player_rotation;
 
-            if (Input.GetAxis("LeftVertical") > 0.4f && vertical_speed < max_speed && player_position.y < Initilize.cave_height + 35)
+            max_vertical_speed = Initilize.player_max_speed * Input.GetAxis("LeftVertical");
+            max_horizontal_speed = Initilize.player_max_speed * Input.GetAxis("LeftHorizontal");
+
+            if (Input.GetAxis("LeftVertical") > 0.4f && vertical_speed < max_vertical_speed && player_position.y < Initilize.cave_height + 35)
             {
                 vertical_speed += acceleration * Time.deltaTime * Input.GetAxis("LeftVertical");
             }
-            else if (Input.GetAxis("LeftVertical") < -0.4f && vertical_speed > -max_speed && player_position.y > 38)
+            else if (Input.GetAxis("LeftVertical") < -0.4f && vertical_speed > max_vertical_speed && player_position.y > 38)
             {
                 vertical_speed -= acceleration * Time.deltaTime * -Input.GetAxis("LeftVertical");
             }
@@ -224,11 +229,11 @@ public class MovePlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxis("LeftHorizontal") > 0.4f && horizontal_speed < max_speed && player_position.x < Initilize.cave_width * Initilize.number_of_blocks/2 - 15)
+            if (Input.GetAxis("LeftHorizontal") > 0.4f && horizontal_speed < max_horizontal_speed && player_position.x < Initilize.cave_width * Initilize.number_of_blocks/2 - 15)
             {
                 horizontal_speed += acceleration * Time.deltaTime * System.Math.Abs(Input.GetAxis("LeftHorizontal"));
             }
-            else if (Input.GetAxis("LeftHorizontal") < -0.4f && horizontal_speed > -max_speed && player_position.x > - 15)
+            else if (Input.GetAxis("LeftHorizontal") < -0.4f && horizontal_speed > max_horizontal_speed && player_position.x > - 15)
             {
                 horizontal_speed -= acceleration * Time.deltaTime * System.Math.Abs(Input.GetAxis("LeftHorizontal"));
             }

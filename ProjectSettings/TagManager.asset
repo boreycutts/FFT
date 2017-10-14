@@ -11,6 +11,8 @@ TagManager:
   - CoinScore
   - Bullet
   - EnemyBullet_SmallBoss
+  - EnemyExlplosion
+  - Bullet Ring
   layers:
   - Default
   - TransparentFX
