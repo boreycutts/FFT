@@ -8,7 +8,7 @@ public class Initilize : MonoBehaviour
     // This is where you can tweak the settings of the project
 
     // Application Settings //
-    static public bool is_mobile = false; // Specifies whether the player is mobile (true) or pc (false)
+    static public bool is_mobile = true; // Specifies whether the player is mobile (true) or pc (false)
     static public int mobile_ui_scale_factor = 1; // Increases the size of ui. Is dependent on the variable "is_mobile" (default = 1)
 
     // Cave Settings //

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerColor : MonoBehaviour
 {
-    static public int color1;
-    static public int color2; 
+    static public int color1 = 0; // Red
+    static public int color2 = 7; // White
     public Material[] color_array;
     Material[] new_color = new Material[2];
 

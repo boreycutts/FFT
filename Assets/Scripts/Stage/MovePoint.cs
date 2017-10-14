@@ -6,6 +6,7 @@ public class MovePoint : MonoBehaviour
     Vector3 bar_position;
     int count = 0;
     int limit = Initilize.cave_depth;
+    int color_2_temp;
 
     public Material[] color_array = new Material[11];
 
@@ -18,6 +19,11 @@ public class MovePoint : MonoBehaviour
 
 	void Update ()
     {
+        if (PlayerColor.color2 != color_2_temp)
+        {
+            GetComponent<MeshRenderer>().material = color_array[PlayerColor.color2];
+        }
+        color_2_temp = PlayerColor.color2;
         count++;
         if (count > limit)
         {
