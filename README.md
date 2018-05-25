@@ -1,2 +1,2 @@
 # FFT
-Its a game!
+A music based game
